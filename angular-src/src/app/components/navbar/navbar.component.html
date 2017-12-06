@@ -1,0 +1,50 @@
+<header>
+  <div class="site-title">
+    <span class="icon-blog"></span>
+    <h1>Blogtastic</h1>
+  </div>
+  <span class="icon-menu" (click)="onClickOpenNav()"></span>
+  <div class="clear-fix"></div>
+  <nav class="header-nav" (click)="onClickOpenNav()">
+    <ul class="main-menu main-closed">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/']">Home</a>
+      </li>
+      <!-- Dropdown menu -->
+      <li class="dropdown-container"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/browse']">Browse</a>
+        <span class="dropdown-closed"><span class="icon-play3"></span></span>
+        <ul class="dropdown-menu">
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/popular']">Popularity</a>
+          </li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/new']">Newest</a>
+          </li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/category']">Category</a>
+          </li>
+        </ul>
+      </li>
+
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/about']">About</a>
+      </li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/contact']">Contact</a>
+      </li>
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/profile']">Account</a>
+      </li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/register']">Sign Up</a>
+      </li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a [routerLink]="['/login']">Login</a>
+      </li>
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a (click)="onLogoutClick()">Log Out</a>
+      </li>
+    </ul>
+  </nav>
+</header>

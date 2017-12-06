@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'blogtastic';
+  src:  url('fonts/blogtastic.eot?wxyfyn');
+  src:  url('fonts/blogtastic.eot?wxyfyn#iefix') format('embedded-opentype'),
+    url('fonts/blogtastic.ttf?wxyfyn') format('truetype'),
+    url('fonts/blogtastic.woff?wxyfyn') format('woff'),
+    url('fonts/blogtastic.svg?wxyfyn#blogtastic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'blogtastic' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-blog:before {
+  content: "\e900";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-play3:before {
+  content: "\ea1c";
+}
+.icon-share:before {
+  content: "\ea82";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-steam2:before {
+  content: "\eaad";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}

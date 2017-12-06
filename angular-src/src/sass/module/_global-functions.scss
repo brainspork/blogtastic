@@ -1,0 +1,15 @@
+//stop user from scrolling
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+//fix float problems
+.clear-fix {
+  clear: both;
+}
+
+//helps centering button
+.button-container {
+  text-align: center;
+}
