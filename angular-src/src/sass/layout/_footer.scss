@@ -1,0 +1,33 @@
+footer {
+  background: $tertiary-color;
+  height: 15vh;
+  padding: 2%;
+  .footer-container-left, .footer-container-right {
+    width: 50%;
+    float: left;
+    a {
+      display: block;
+      text-align: center;
+      font-size: 5vw;
+      margin: 2% 0;
+      color: #eee;
+    }
+
+    .social-media-links {
+      display: block;
+      text-align: center;
+      a {
+        display: inline-block;
+        margin: 0 1%;
+        span {
+          font-size: 7vw;
+          color: #eee;
+        }
+      }
+
+      a:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

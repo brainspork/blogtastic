@@ -5,5 +5,44 @@
   border-radius: 3px;
   background: $primary-color;
   font-family: $font-main;
-  color: #fff;
+  a {
+    color: #eee;
+  }
+}
+
+.secondary-button {
+  font-size: 7.5vw;
+  padding: 2% 4%;
+  border-radius: 3px;
+  background: $secondary-color;
+  font-family: $font-main;
+  color: #eee;
+}
+
+//sticky footer
+.container {
+  min-height: 100%;
+  margin-bottom: -15vh;
+}
+
+.push {
+  height: 20vh;
+}
+
+//input styling
+.input-main {
+  border-radius: 3px;
+  border: 1px solid $secondary-color;
+  padding: 3% 1%;
+  font-size: 7vw;
+}
+
+//fix float problems
+.clear-fix {
+  clear: both;
+}
+
+//helps centering button
+.button-container {
+  text-align: center;
 }
