@@ -17,13 +17,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
       this.user = profile.user;
+      console.log(this.user);
     },
     err => {
       return false;
     });
-  }
-  
-  updateUserAccount() {
-    console.log('Working');
   }
 }

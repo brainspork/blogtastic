@@ -16,5 +16,5 @@
     <h5>Bio:</h5>
     <p class="bio">{{user.bio}}</p>
   </div>
-  <button class="secondary-button" (click)="updateUserAccount()">Update Account</button>
+  <button class="secondary-button"><a [routerLink]="['/update']">Update Account</a></button>
 </section>

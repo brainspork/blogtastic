@@ -13,16 +13,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { UpdateProfileService } from './services/update-profile.service';
 import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent, pathMatch: 'full'},
   {path:'register', component: RegisterComponent, pathMatch: 'full'},
   {path:'login', component: LoginComponent, pathMatch: 'full'},
-  {path:'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]}
+  {path:'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+  {path:'update', component: UpdateUserComponent, pathMatch: 'full', canActivate: [AuthGuard]}
 ]
 
 @NgModule({
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProfileComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, UpdateProfileService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

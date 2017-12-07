@@ -67,5 +67,33 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
   res.json({user: req.user});
 });
 
+//Update
+router.put('/update', (req, res) => {
+  console.log(req.body);
+  const user = req.body;
+  const updateUser = new User({
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    username: user.username,
+    age: user.age,
+    bio: user.bio,
+    profileImage: user.profileImage,
+    prefrences: {
+      displayAge: user.displayAge,
+      displayName: user.displayName,
+      displayEmail: user.displayEmail
+    }
+  });
+
+  User.updateUser(user.id, updateUser, (err, user) => {
+    if(err) {
+      res.json({success: false, msg: 'Failed to update user'});
+    } else {
+      res.json({success: true, msg: 'User updated'});
+    }
+  });
+});
+
 //Exports router to app.js
 module.exports = router;

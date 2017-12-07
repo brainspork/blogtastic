@@ -27,13 +27,20 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
+    const preferences = {
+      displayName: false,
+      displayEmail: false,
+      displayAge: false,
+    }
+
     const user = {
       firstName: this.firstName,
       lastName: this.lastName,
       username: this.username,
       email: this.email,
       password: this.password,
-      confirm: this.confirm
+      confirm: this.confirm,
+      prefrences: prefrences
     }
 
     //Require fields

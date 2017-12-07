@@ -1,0 +1,42 @@
+<h3>Update Account</h3>
+<form class="form update-form">
+  <fieldset>
+    <label>First Name</label>
+    <input id="first" class="input-main" type="text" [(ngModel)]="firstName" name="firstName" required>
+  </fieldset>
+  <fieldset>
+    <label>Last Name</label>
+    <input class="input-main" type="text" [(ngModel)]="lastName" name="lastName" required>
+  </fieldset>
+  <fieldset>
+    <label>Age</label>
+    <input class="input-main" type="number" [(ngModel)]="age" name="age" >
+  </fieldset>
+  <fieldset>
+    <label>Username</label>
+    <input class="input-main" type="text" [(ngModel)]="username" name="username" required>
+  </fieldset>
+  <fieldset>
+    <label>Email</label>
+    <input class="input-main" type="text" [(ngModel)]="email" name="email"  required>
+  </fieldset>
+  <fieldset>
+    <label>Bio</label>
+    <textarea class="bio-text" [(ngModel)]="bio" name="bio" ></textarea>
+  </fieldset>
+
+  <h5>Prefrences</h5>
+  <fieldset>
+    <label>Display Name</label>
+    <input type="checkbox" [(ngModel)]="displayName" name="displayName">
+  </fieldset>
+  <fieldset>
+    <label>Display Age</label>
+    <input type="checkbox" [(ngModel)]="displayAge" name="displayAge">
+  </fieldset>
+  <fieldset>
+    <label>Display Email</label>
+    <input type="checkbox" [(ngModel)]="displayEmail" name="displayEmail">
+  </fieldset>
+  <button class="secondary-button" (click)="updateProfile()">Save</button>
+</form>
