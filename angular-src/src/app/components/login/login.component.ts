@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         this.authService.storeUserData(data.token, data.user);
         this.router.navigate(['profile']);
       } else {
+        console.log(data.msg)
         this.router.navigate(['login']);
       }
     });

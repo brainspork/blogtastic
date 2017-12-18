@@ -11,7 +11,7 @@ export class UpdateProfileService {
   updateUser(user) {
     let headers = new Headers();
     headers.append('Content-type', 'application/json');
-    return this.http.put('http://localhost:7070/users/update', user, {headers: headers})
+    return this.http.put('http://localhost:4040/users/update', user, {headers: headers})
       .map(res => res.json());
   }
 }

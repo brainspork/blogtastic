@@ -11,15 +11,6 @@ import { Router } from '@angular/router';
 })
 export class UpdateUserComponent implements OnInit {
   user: any;
-  firstName: String;
-  lastName: String;
-  username: String;
-  email: String;
-  bio: String;
-  age: String;
-  displayAge: Boolean;
-  displayName: Boolean;
-  displayEmail: Boolean;
 
   constructor(
     private authService: AuthService,
@@ -32,24 +23,53 @@ export class UpdateUserComponent implements OnInit {
     if(!this.authService.loggedIn()) {
       this.router.navigate(['login']);
     }
+
+    this.authService.getProfile().subscribe(data => {
+      this.user = {
+        firstName: data.user.firstName,
+        lastName: data.user.lastName,
+        username: data.user.username,
+        email: data.user.email,
+        bio: data.user.bio,
+        age: data.user.age,
+        displayAge: data.user.prefrences.displayAge,
+        displayName: data.user.prefrences.displayName,
+        displayEmail: data.user.prefrences.displayEmail
+      }
+    });
+  }
+
+  sliderController(event) {
+    let container = event.target || event.srcElement || event.currentTarget;
+    let slider = container.parentNode.querySelector('.slider');
+    let checkbox = container.parentNode.querySelector('.checkbox');
+    if(!slider.classList.contains('checked')) {
+      slider.classList.add('checked');
+      checkbox.checked = true;
+      console.log(checkbox);
+      console.log(this.user.displayName)
+    } else {
+      slider.classList.remove('checked');
+      checkbox.checked = false;
+      console.log(checkbox);
+      console.log(this.user.displayName)
+    }
   }
 
   updateProfile() {
-    const prefrences = {
-      displayName: this.displayName,
-      displayEmail: this.displayEmail,
-      displayAge: this.displayAge,
-    }
-
     const userInfo = {
-      id: JSON.parse(localStorage.user).id,
-      username: this.username,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      age: this.age,
-      bio: this.bio,
-      preferences: prefrences
+      id: JSON.parse(localStorage.user)._id,
+      username: this.user.username,
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.user.email,
+      age: this.user.age,
+      bio: this.user.bio,
+      prefrences: {
+        displayName: this.user.displayName,
+        displayEmail: this.user.displayEmail,
+        displayAge: this.user.displayAge
+      }
     }
 
     if(!this.validateService.validateEmail(userInfo.email)) {
@@ -59,8 +79,9 @@ export class UpdateUserComponent implements OnInit {
     this.updateProfileService.updateUser(userInfo).subscribe(data => {
       if(data.success) {
         const token = localStorage.id_token;
-        localStorage.clear();
-        this.authService.storeUserData(token, userInfo);
+        this.authService.getProfile().subscribe(data => {
+          this.authService.storeUserData(token, data.user);
+        })
         this.router.navigate(['/profile']);
       } else {
         this.router.navigate(['/update']);

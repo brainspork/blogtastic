@@ -27,10 +27,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    const preferences = {
+    const prefrences = {
       displayName: false,
       displayEmail: false,
-      displayAge: false,
+      displayAge: false
     }
 
     const user = {

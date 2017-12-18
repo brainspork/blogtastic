@@ -27,10 +27,6 @@ const UserSchema = mongoose.Schema({
   age: {
     type: Number
   },
-  profileImage: {
-    data: Buffer,
-    contentType: String
-  },
   bio: {
     type: String
   },
@@ -76,19 +72,20 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
 }
 
 module.exports.updateUser = function(id, user, callback) {
-  const query = {_id: id};
+  const query = {"_id": id};
   const update = {
-    firstName: user.firstName,
-    lastName: user.lastName,
-    age: user.age,
-    username: user.username,
-    email: user.email,
-    bio: user.bio,
-    prefrences: {
-      displayAge: user.prefrences.displayAge,
-      displayName: user.prefrences.displayName,
-      displayEmail: user.prefrences.displayEmail
+    "firstName": user.firstName,
+    "lastName": user.lastName,
+    "age": user.age,
+    "username": user.username,
+    "email": user.email,
+    "bio": user.bio,
+    "prefrences": {
+      "displayAge": user.prefrences.displayAge,
+      "displayName": user.prefrences.displayName,
+      "displayEmail": user.prefrences.displayEmail
     }
   }
-  User.update(query, update, {upsert: true}, callback);
+
+  User.update(query, {"$set": update}, callback);
 }

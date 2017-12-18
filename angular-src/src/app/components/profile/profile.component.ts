@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  user: any;
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -17,7 +19,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
       this.user = profile.user;
-      console.log(this.user);
     },
     err => {
       return false;

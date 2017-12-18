@@ -13,7 +13,12 @@ router.post('/register', (req, res, next) => {
     lastName: req.body.lastName,
     email: req.body.email,
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    prefrences: {
+      displayAge: req.body.prefrences.displayAge,
+      displayName: req.body.prefrences.displayName,
+      displayEmail: req.body.prefrences.displayEmail
+    }
   });
 
   User.addUser(newUser, (err, user) => {
@@ -69,7 +74,6 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
 
 //Update
 router.put('/update', (req, res) => {
-  console.log(req.body);
   const user = req.body;
   const updateUser = new User({
     firstName: user.firstName,
@@ -80,9 +84,9 @@ router.put('/update', (req, res) => {
     bio: user.bio,
     profileImage: user.profileImage,
     prefrences: {
-      displayAge: user.displayAge,
-      displayName: user.displayName,
-      displayEmail: user.displayEmail
+      displayAge: user.prefrences.displayAge,
+      displayName: user.prefrences.displayName,
+      displayEmail: user.prefrences.displayEmail
     }
   });
 
