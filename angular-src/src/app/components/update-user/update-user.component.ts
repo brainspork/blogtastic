@@ -39,22 +39,6 @@ export class UpdateUserComponent implements OnInit {
     });
   }
 
-  sliderController(event) {
-    let container = event.target || event.srcElement || event.currentTarget;
-    let slider = container.parentNode.querySelector('.slider');
-    let checkbox = container.parentNode.querySelector('.checkbox');
-    if(!slider.classList.contains('checked')) {
-      slider.classList.add('checked');
-      checkbox.checked = true;
-      console.log(checkbox);
-      console.log(this.user.displayName)
-    } else {
-      slider.classList.remove('checked');
-      checkbox.checked = false;
-      console.log(checkbox);
-      console.log(this.user.displayName)
-    }
-  }
 
   updateProfile() {
     const userInfo = {

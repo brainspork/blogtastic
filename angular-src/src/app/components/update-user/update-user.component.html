@@ -21,40 +21,26 @@
       <label>Email</label>
       <input class="input-main" type="text" [(ngModel)]="user.email" name="email" required>
     </fieldset>
-    <fieldset>
+    <fieldset class="bio-container">
       <label>Bio</label>
-      <textarea class="bio-text" [(ngModel)]="user.bio" name="bio"></textarea>
+      <textarea class="bio-text" [(ngModel)]="user.bio" name="bio" maxlength="200"></textarea>
+      <span class="textarea-counter">{{200 - user.bio.length}}</span>
     </fieldset>
 
     <h3>Prefrences</h3>
-    <fieldset class="checkbox-container">
+    <fieldset>
       <label class="checkbox-label">Display Name</label>
-        <div class="checkbox-slider" (click)="sliderController($event)">
-          <input type="checkbox" class="checkbox" [(ngModel)]="user.displayName" name="displayName">
-        <div class="slider-contianer">
-          <div class="slider"></div>
-        </div>
-      </div>
+      <input type="checkbox" [(ngModel)]="user.displayName" name="displayName">
     </fieldset>
 
-    <fieldset class="checkbox-container">
+    <fieldset>
       <label class="checkbox-label">Display Age</label>
-        <div class="checkbox-slider" (click)="sliderController($event)">
-          <input type="checkbox" class="checkbox" [(ngModel)]="user.displayAge" name="displayAge">
-        <div class="slider-contianer">
-          <div class="slider"></div>
-        </div>
-      </div>
+      <input type="checkbox" [(ngModel)]="user.displayAge" name="displayAge">
     </fieldset>
 
-    <fieldset class="checkbox-container">
+    <fieldset>
       <label class="checkbox-label">Display Email</label>
-        <div class="checkbox-slider" (click)="sliderController($event)">
-          <input type="checkbox" class="checkbox" [(ngModel)]="user.displayEmail" name="displayEmail">
-        <div class="slider-contianer">
-          <div class="slider"></div>
-        </div>
-      </div>
+      <input type="checkbox" [(ngModel)]="user.displayEmail" name="displayEmail">
     </fieldset>
 
     <div class="button-container">

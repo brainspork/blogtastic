@@ -6,47 +6,85 @@
   font-size: 7vw;
 }
 
-//checkbox styling
-.checkbox-container {
-  display: block;
-  margin: 10% auto;
-  width: 100%;
-
-  .checkbox-label {
-    display: block;
-    text-align: center;
-  }
-
-  .checkbox-slider {
-    display: block;
-    .checkbox {
-      position: absolute;
-      opacity: 0;
-    }
-
-    .slider-contianer {
-      position: relative;
-      top: 2%;
-      width: 50px;
-      height: 25px;
-      background: #eee;
-      border: 2px solid #888;
-      border-radius: 100px;
-    }
-  }
+.checkbox-label {
+  display: inline-block;
+  float: left;
 }
 
-.slider {
+input[type="checkbox"] {
   width: 25px;
   height: 25px;
-  left: 0;
-  border-radius: 100%;
-  background: red;
-  position: absolute;
-  transition: 350ms all;
+  margin: 2% 15% 2% 0;
+  float: right;
 }
 
-.checked {
-  left: calc(100% - 25px);
-  background: green;
+textarea {
+  border-radius: 3px;
+  border: 1px solid $secondary-color;
+  font-family: $font-stack;
+  padding: 3% 1%;
+  font-size: 6vw;
+  display: block;
+  margin: 0 auto;
+  resize: none;
+  width: 92%;
+  height: 30vw;
 }
+
+.bio-container {
+  position: relative;
+}
+
+.textarea-counter {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+  font-size: 5vw;
+  font-family: $font-stack;
+  color: #888;
+}
+
+//checkbox styling
+// .checkbox-container {
+//   display: block;
+//   margin: 10% auto;
+//   width: 100%;
+//
+//   .checkbox-label {
+//     display: block;
+//     text-align: center;
+//   }
+//
+//   .checkbox-slider {
+//     display: block;
+//     .checkbox {
+//       position: absolute;
+//       opacity: 0;
+//     }
+//
+//     .slider-contianer {
+//       position: relative;
+//       top: 2%;
+//       width: 50px;
+//       height: 25px;
+//       background: #eee;
+//       border: 2px solid #888;
+//       border-radius: 100px;
+//     }
+//   }
+// }
+//
+// .slider {
+//   width: 25px;
+//   height: 25px;
+//   left: 0;
+//   border-radius: 100%;
+//   background: red;
+//   position: absolute;
+//   transition: 350ms all;
+// }
+//
+// .checked {
+//   left: calc(100% - 25px);
+//   background: green;
+// }
