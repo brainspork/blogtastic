@@ -1,3 +1,50 @@
 .profile-details {
+  display: block;
+  text-align: center;
+  padding-bottom: 5%;
+  .line {
+    border-bottom: 2px solid $tertiary-color;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
 
+  .username {
+    font-size: 7.5vw;
+    font-family: $font-stack;
+    font-weight: 700;
+  }
+
+  .user-details {
+    display: block;
+    text-align: center;
+    .name {
+      margin-left: 0;
+    }
+
+    p {
+      display: inline-block;
+      margin-left: 2%;
+      font-size: 5vw;
+    }
+  }
+
+  .email {
+    font-size: 5vw;
+  }
+
+  .bio-container {
+    h5 {
+      font-size: 5vw;
+      font-weight: 700;
+    }
+
+    .bio {
+      font-size: 5vw;
+      margin: 2% 3%;
+    }
+  }
+
+  a {
+    color: #eee;
+  }
 }

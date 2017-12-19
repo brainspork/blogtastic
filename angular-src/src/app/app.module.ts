@@ -19,13 +19,15 @@ import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { UpdateProfileService } from './services/update-profile.service';
 import { AuthGuard } from './guards/auth.guard';
+import { NewArticleComponent } from './components/new-article/new-article.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent, pathMatch: 'full'},
   {path:'register', component: RegisterComponent, pathMatch: 'full'},
   {path:'login', component: LoginComponent, pathMatch: 'full'},
   {path:'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-  {path:'update', component: UpdateUserComponent, pathMatch: 'full', canActivate: [AuthGuard]}
+  {path:'update', component: UpdateUserComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+  {path:'newarticle', component: NewArticleComponent, pathMatch: 'full', canActivate: [AuthGuard]},
 ]
 
 @NgModule({
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     RegisterComponent,
     FooterComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    NewArticleComponent
   ],
   imports: [
     BrowserModule,

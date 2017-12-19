@@ -1,0 +1,24 @@
+<h3>New Article</h3>
+<form class="new-article-form">
+  <fieldset>
+    <label>Title</label>
+    <input type="text" class="input-main" name="title" [(ngModel)]="title">
+  </fieldset>
+  <fieldset>
+    <label>Description</label>
+    <input type="text" class="input-main" name="title" [(ngModel)]="description">
+  </fieldset>
+  <fieldset>
+    <label>Body</label>
+    <textarea class="article" name="body" [(ngModel)]="body"></textarea>
+  </fieldset>
+  <fieldset>
+    <label>Tags</label>
+    <p>seperate tags with comma</p>
+    <input class="input-main" type="text" name="tags" [(ngModel)]="tags">
+  </fieldset>
+  <div class="button-container">
+    <!-- <button class="secondary-button">Save</button> -->
+    <button class="secondary-button" (click)="publishArticle()">Publish</button>
+  </div>
+</form>
